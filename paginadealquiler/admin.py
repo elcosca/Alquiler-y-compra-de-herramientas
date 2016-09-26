@@ -9,7 +9,6 @@ from .models import Contrato_de_alquilacion_compra
 from .models import Turnos
 from .models import Beneficio
 
-
 admin.site.register(Clientes)
 admin.site.register(Empleados)
 admin.site.register(Herramientas)
