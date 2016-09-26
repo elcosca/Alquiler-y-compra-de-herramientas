@@ -69,13 +69,13 @@ class Contrato_de_alquilacion_compra(models.Model):
     nombre_de_la_empresa = models.ForeignKey('Empresas')
     horario_de_alquiler_compra = models.DateTimeField(default=timezone.now)
     empleado = models.ForeignKey('Empleados')
-    objetivo = models.CharField(max_length=200)
+    proposito = models.CharField(max_length=200)
     herramienta = models.ForeignKey('Herramientas')
     cantidad = models.IntegerField()
     fecha_de_entrega = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return self.horario_de_alquiler
+        return self.proposito
 
 
 class Proveedor(models.Model):
@@ -89,12 +89,18 @@ class Proveedor(models.Model):
 
 
 class Asociados(models.Model):
-    numero_de_asociado = models.CharField(max_length=200)
-    id_asociado = models.IntegerField()
+    id_asociado = models.CharField(max_length=200)
     cliente = models.ForeignKey('Clientes')
     empresa = models.ForeignKey('Empresas')
-    beneficio = models.CharField(max_length=200)
+    beneficio = models.ForeignKey('Beneficio')
     renovar_asociacion = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return self.cliente
+        return self.id_asociado
+
+class Beneficio(models.Model):
+    descripcion = models.CharField(max_length=200)
+
+
+    def __str__(self):
+        return self.descripcion
