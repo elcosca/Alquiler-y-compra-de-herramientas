@@ -11,6 +11,7 @@ class Herramientas (models.Model):
     def __str__(self):
         return self.nombre_de_la_herramienta
 
+
 class Clientes (models.Model):
     id_cliente = models.IntegerField()
     nombre = models.CharField(max_length=200)
@@ -25,6 +26,7 @@ class Clientes (models.Model):
     def __str__(self):
         return self.apellido
 
+
 class Empresas (models.Model):
     id_empresas = models.IntegerField()
     nombre = models.CharField(max_length=200)
@@ -35,6 +37,7 @@ class Empresas (models.Model):
 
     def __str__(self):
         return self.nombre
+
 
 class Empleados (models.Model):
     id_empleados = models.IntegerField()
@@ -51,12 +54,14 @@ class Empleados (models.Model):
     def __str__(self):
         return self.apellido
 
+
 class Turnos(models.Model):
     id_turno = models.IntegerField()
     nombre = models.CharField(max_length=200)
 
     def __str__(self):
         return self.nombre
+
 
 class Contrato_de_alquilacion_compra(models.Model):
     id_contrato = models.IntegerField()
@@ -72,6 +77,7 @@ class Contrato_de_alquilacion_compra(models.Model):
     def __str__(self):
         return self.horario_de_alquiler
 
+
 class Proveedor(models.Model):
     id_proveedor = models.IntegerField()
     nombre_del_proveedor = models.CharField(max_length=200)
@@ -80,6 +86,7 @@ class Proveedor(models.Model):
 
     def __str__(self):
         return self.nombre_del_proveedor
+
 
 class Asociados(models.Model):
     numero_de_asociado = models.CharField(max_length=200)
@@ -90,4 +97,4 @@ class Asociados(models.Model):
     renovar_asociacion = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return self.numero_de_asociado
+        return self.cliente
