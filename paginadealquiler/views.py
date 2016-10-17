@@ -6,6 +6,13 @@ from .models import Empleados
 from .models import Contrato_de_alquilacion_compra
 from .models import Proveedor
 from .models import Asociados
+from .forms import HerramientaForm
+from .forms import ProveedorForm
+from .forms import EmpresaForm
+from .forms import EmpleadoForm
+from .forms import ContratoForm
+from .forms import ClienteForm
+from .forms import AsociadoForm
 
 
 def vistainicio(request):
@@ -46,3 +53,38 @@ def vistaproveedor(request):
 def vistaasociados(request):
     asociados = Asociados.objects.all()
     return render(request, 'asociados.html', {'asociados': asociados})
+
+
+def herramienta_new(request):
+        form = HerramientaForm()
+        return render(request, 'paginadealquiler/templates/herramientas.html', {'form': form})
+
+
+def proveedor_new(request):
+        form = ProveedorForm()
+        return render(request, 'paginadealquiler/proveedor.html', {'form': form})
+
+
+def empresa_new(request):
+        form = EmpresaForm()
+        return render(request, 'paginadealquiler/empresas.html', {'form': form})
+
+
+def empleado_new(request):
+        form = EmpleadoForm()
+        return render(request, 'paginadealquiler/empleados.html', {'form': form})
+
+
+def contrato_new(request):
+        form = ContratoForm()
+        return render(request, 'paginadealquiler/contrato.html', {'form': form})
+
+
+def cliente_new(request):
+        form = ClienteForm()
+        return render(request, 'paginadealquiler/clientes.html', {'form': form})
+
+
+def asociado_new(request):
+        form = AsociadoForm()
+        return render(request, 'paginadealquiler/asociados.html', {'form': form})
