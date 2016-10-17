@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 from .models import Herramientas
 from .models import Clientes
 from .models import Empresas
@@ -57,34 +58,98 @@ def vistaasociados(request):
 
 def herramienta_new(request):
     form = HerramientaForm()
-    return render(request, 'herramienta-new.html', {'form': form})
+    if request.method == "POST":
+        form = HerramientaForm(request.POST)
+    if form.is_valid():
+                herramienta = form.save(commit=False)
+                herramienta.save()
+                return redirect('/')
+    else:
+            form = HerramientaForm()
+    herramientas = Herramientas.objects.all()
+    return render(request, 'herramienta-new.html', {'herramientas': herramientas, 'form' : form})
+
 
 
 def proveedor_new(request):
     form = ProveedorForm()
-    return render(request, 'proveedor-new.html', {'form': form})
+    if request.method == "POST":
+        form = ProveedorForm(request.POST)
+    if form.is_valid():
+                proveedor = form.save(commit=False)
+                proveedor.save()
+                return redirect('/')
+    else:
+            form = ProveedorForm()
+    proveedores = Proveedor.objects.all()
+    return render(request, 'proveedor-new.html', {'proveedores': proveedores, 'form' : form})
 
 
 def empresa_new(request):
     form = EmpresaForm()
-    return render(request, 'empresa-new.html', {'form': form})
+    if request.method == "POST":
+        form = EmpresaForm(request.POST)
+    if form.is_valid():
+                empresa = form.save(commit=False)
+                empresa.save()
+                return redirect('/')
+    else:
+            form = EmpresaForm()
+    empresas = Empresas.objects.all()
+    return render(request, 'empresa-new.html', {'empresas': empresas, 'form' : form})
 
 
 def empleado_new(request):
     form = EmpleadoForm()
-    return render(request, 'empleado-new.html', {'form': form})
+    if request.method == "POST":
+        form = EmpleadoForm(request.POST)
+    if form.is_valid():
+                empleado = form.save(commit=False)
+                empleado.save()
+                return redirect('/')
+    else:
+            form = EmpleadoForm()
+    empleados = Empleados.objects.all()
+    return render(request, 'empleado-new.html', {'empleados': empleados, 'form' : form})
 
 
 def contrato_new(request):
     form = ContratoForm()
-    return render(request, 'contrato-new.html', {'form': form})
+    if request.method == "POST":
+        form = ContratoForm(request.POST)
+    if form.is_valid():
+                contrato = form.save(commit=False)
+                contrato.save()
+                return redirect('/')
+    else:
+            form = ContratoForm()
+    contratos = Contrato_de_alquilacion_compra.objects.all()
+    return render(request, 'contrato-new.html', {'contratos': contratos, 'form' : form})
 
 
 def cliente_new(request):
     form = ClienteForm()
-    return render(request, 'cliente-new.html', {'form': form})
+    if request.method == "POST":
+        form = ClienteForm(request.POST)
+    if form.is_valid():
+                cliente = form.save(commit=False)
+                cliente.save()
+                return redirect('/')
+    else:
+            form = ClienteForm()
+    clientes = Clientes.objects.all()
+    return render(request, 'cliente-new.html', {'clientes': clientes, 'form' : form})
 
 
 def asociado_new(request):
     form = AsociadoForm()
-    return render(request, 'asociado-new.html', {'form': form})
+    if request.method == "POST":
+        form = AsociadoForm(request.POST)
+    if form.is_valid():
+                asociado = form.save(commit=False)
+                asociado.save()
+                return redirect('/')
+    else:
+            form = ContratoForm()
+    asociados = Asociados.objects.all()
+    return render(request, 'asociado-new.html', {'asociados': asociados, 'form' : form})

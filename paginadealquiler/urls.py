@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns = [
         url(r'^$', views.vistainicio),
+        url(r'^herramienta/new/$', views.herramienta_new, name='herramienta_new'),
         url(r'^herramientas/', views.vistaherramientas),
         url(r'^clientes/', views.vistaclientes),
         url(r'^empresas/', views.vistaempresas),
@@ -12,7 +13,6 @@ urlpatterns = [
         url(r'^proveedor/new/$', views.proveedor_new, name='proveedor_new'),
         url(r'^proveedor/', views.vistaproveedor),
         url(r'^asociados/', views.vistaasociados),
-        url(r'^herramienta/new/$', views.herramienta_new, name='herramienta_new'),
         url(r'^empresa/new/$', views.empresa_new, name='empresa_new'),
         url(r'^empleado/new/$', views.empleado_new, name='empleado_new'),
         url(r'^cliente/new/$', views.cliente_new, name='cliente_new'),

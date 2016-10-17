@@ -56,3 +56,4 @@ class AsociadoForm(forms.ModelForm):
             model = Asociados
             fields = ('id_asociado', 'cliente', 'empresa', 'beneficio', 'renovar_asociacion')
 
+
