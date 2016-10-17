@@ -10,7 +10,7 @@
 
 
 <body>
-<title>Contrato de Alquiler y de Compra</title>
+<title>Herramientas</title>
 
 
 <nav class="navbar navbar-default">
@@ -70,16 +70,13 @@
 
 <body style="background-color:powderblue;">
 
-
- {% for c in contrato %}
-    {{c.nombre_del_cliente }}
-    {{c.nombre_de_la_empresa|linebreaks }}
-    {{c.herramienta|linebreaks }}
---------------------------<br>
- {% endfor %}
-
-
-
+    {% block content %}
+        <h1>Nueva Herramienta</h1>
+        <form method="POST" class="HerramientaForm">{% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="save btn btn-default">Enviar</button>
+        </form>
+    {% endblock %}
 
 
 </body>

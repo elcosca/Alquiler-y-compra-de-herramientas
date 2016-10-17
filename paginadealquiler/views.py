@@ -56,35 +56,35 @@ def vistaasociados(request):
 
 
 def herramienta_new(request):
-        form = HerramientaForm()
-        return render(request, 'paginadealquiler/templates/herramientas.html', {'form': form})
+    form = HerramientaForm()
+    return render(request, 'herramienta-new.html', {'form': form})
 
 
 def proveedor_new(request):
-        form = ProveedorForm()
-        return render(request, 'paginadealquiler/proveedor.html', {'form': form})
+    form = ProveedorForm()
+    return render(request, 'proveedor-new.html', {'form': form})
 
 
 def empresa_new(request):
-        form = EmpresaForm()
-        return render(request, 'paginadealquiler/empresas.html', {'form': form})
+    form = EmpresaForm()
+    return render(request, 'empresa-new.html', {'form': form})
 
 
 def empleado_new(request):
-        form = EmpleadoForm()
-        return render(request, 'paginadealquiler/empleados.html', {'form': form})
+    form = EmpleadoForm()
+    return render(request, 'empleado-new.html', {'form': form})
 
 
 def contrato_new(request):
-        form = ContratoForm()
-        return render(request, 'paginadealquiler/contrato.html', {'form': form})
+    form = ContratoForm()
+    return render(request, 'contrato-new.html', {'form': form})
 
 
 def cliente_new(request):
-        form = ClienteForm()
-        return render(request, 'paginadealquiler/clientes.html', {'form': form})
+    form = ClienteForm()
+    return render(request, 'cliente-new.html', {'form': form})
 
 
 def asociado_new(request):
-        form = AsociadoForm()
-        return render(request, 'paginadealquiler/asociados.html', {'form': form})
+    form = AsociadoForm()
+    return render(request, 'asociado-new.html', {'form': form})

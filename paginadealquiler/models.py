@@ -57,10 +57,10 @@ class Empleados (models.Model):
 
 class Turnos(models.Model):
     id_turno = models.IntegerField()
-    nombre = models.CharField(max_length=200)
+    turno = models.CharField(max_length=200)
 
     def __str__(self):
-        return self.nombre
+        return self.turno
 
 
 class Contrato_de_alquilacion_compra(models.Model):
