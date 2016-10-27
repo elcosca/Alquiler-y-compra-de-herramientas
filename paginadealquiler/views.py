@@ -83,6 +83,11 @@ def herramienta_edit(request, pk):
             form = HerramientaForm(instance=herramienta)
         return render(request, 'herramienta-edit.html', {'form': form})
 
+def herramienta_eliminar (request, pk):
+        Herramientas.objects.filter(pk=pk).delete()
+        herramientas = Herramientas.objects.all()
+        return render(request, 'herramientas.html', {'herramientas': herramientas})
+
 
 def proveedor_new(request):
     form = ProveedorForm()
