@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
+from django.shortcuts import get_object_or_404
 from .models import Herramientas
 from .models import Clientes
 from .models import Empresas
@@ -69,6 +70,18 @@ def herramienta_new(request):
     herramientas = Herramientas.objects.all()
     return render(request, 'herramienta-new.html', {'herramientas': herramientas, 'form' : form})
 
+def herramienta_edit(request, pk):
+        herramienta = get_object_or_404(Herramientas, pk=pk)
+        if request.method == "POST":
+            form = HerramientaForm(request.POST, instance=herramienta)
+            if form.is_valid():
+                herramienta = form.save(commit=False)
+                herramienta.save()
+                herramientas = Herramientas.objects.all()
+                return render(request, 'herramientas.html', {'herramientas': herramientas})
+        else:
+            form = HerramientaForm(instance=herramienta)
+        return render(request, 'herramienta-edit.html', {'form': form})
 
 
 def proveedor_new(request):
@@ -84,6 +97,19 @@ def proveedor_new(request):
     proveedores = Proveedor.objects.all()
     return render(request, 'proveedor-new.html', {'proveedores': proveedores, 'form' : form})
 
+'''
+def proveedor_edit(request, pk):
+        proveedor = get_object_or_404(Proveedor, pk=pk)
+        if request.method == "POST":
+            form = ProveedorForm(request.POST, instance=proveedor)
+            if form.is_valid():
+                proveedor = form.save(commit=False)
+                proveedor.save()
+                return redirect('/', pk=proveedor.pk)
+        else:
+            form = ProveedorForm(instance=proveedor)
+        return render(request, '/proveedor-edit.html', {'form': form})
+'''
 
 def empresa_new(request):
     form = EmpresaForm()
@@ -98,6 +124,19 @@ def empresa_new(request):
     empresas = Empresas.objects.all()
     return render(request, 'empresa-new.html', {'empresas': empresas, 'form' : form})
 
+'''
+def empresa_edit(request, pk):
+        empresa = get_object_or_404(Herramientas, pk=pk)
+        if request.method == "POST":
+            form = HerramientaForm(request.POST, instance=herramienta)
+            if form.is_valid():
+                herramienta = form.save(commit=False)
+                herramienta.save()
+                return redirect('/', pk=herramienta.pk)
+        else:
+            form = HerramientaForm(instance=herramienta)
+        return render(request, '/herramienta-edit.html', {'form': form})
+'''
 
 def empleado_new(request):
     form = EmpleadoForm()

@@ -10,7 +10,7 @@
 
 
 <body>
-<title>Asociados</title>
+<title>Herramientas</title>
 
 
 <nav class="navbar navbar-default">
@@ -70,15 +70,13 @@
 
 <body style="background-color:powderblue;">
 
-    {% block content %}
-        <h1>Nuevo Asociado</h1>
-        <form method="POST" class="HerramientaForm">{% csrf_token %}
-            {{ form.as_p }}
-            <button type="submit" class="save btn btn-default">Enviar</button>
+{% block content %}
+
+<form method="POST" class="HerramientaForm">{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="save btn btn-default">Guardar</button>
         </form>
-    {% endblock %}
-
-
+{% endblock %}
 
 </body>
 </html>

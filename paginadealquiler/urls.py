@@ -4,6 +4,7 @@ from . import views
 urlpatterns = [
         url(r'^$', views.vistainicio),
         url(r'^herramienta/new/$', views.herramienta_new, name='herramienta_new'),
+        url(r'^herramienta/edit/(?P<pk>[0-9]+)$', views.herramienta_edit, name='herramienta_edit'),
         url(r'^herramientas/', views.vistaherramientas),
         url(r'^clientes/', views.vistaclientes),
         url(r'^empresas/', views.vistaempresas),
