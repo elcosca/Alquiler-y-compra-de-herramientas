@@ -87,6 +87,7 @@
         <li><a href="/contrato/">Contratos</a></li>
         <li><a href="/empleados/">Empleados</a></li>
         <li><a href="/empresas/">Empresas</a></li>
+        <li><a href="/proveedor/">Proveedores</a></li>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
@@ -98,8 +99,7 @@
     {{p.nombre_del_proveedor }}
     {{p.direccion_de_correo|linebreaks }}
     <a href="{% url 'proveedor_eliminar' pk=p.pk %}"><button type="button" class="btn btn-danger glyphicon glyphicon-remove"></button></a>
-    <a class="btn btn-default" href="{% url 'proveedor_edit' pk=p.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
---------------------------<br>
+    <a class="btn btn-default" href="{% url 'proveedor_edit' pk=p.pk %}"><span class="glyphicon glyphicon-pencil"></span></a><br><br>
  {% endfor %}
 
 

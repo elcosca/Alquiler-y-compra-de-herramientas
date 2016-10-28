@@ -87,6 +87,7 @@
         <li><a href="/contrato/">Contratos</a></li>
         <li><a href="/empleados/">Empleados</a></li>
         <li><a href="/empresas/">Empresas</a></li>
+        <li><a href="/proveedor/">Proveedores</a></li>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
@@ -100,8 +101,7 @@
     {{c.nombre_de_la_empresa|linebreaks }}
     {{c.herramienta|linebreaks }}
     <a href="{% url 'contrato_eliminar' pk=c.pk %}"><button type="button" class="btn btn-danger glyphicon glyphicon-remove"></button></a>
-    <a class="btn btn-default" href="{% url 'contrato_edit' pk=c.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
---------------------------<br>
+    <a class="btn btn-default" href="{% url 'contrato_edit' pk=c.pk %}"><span class="glyphicon glyphicon-pencil"></span></a><br><br><br>
  {% endfor %}
 
 <a href="/contrato/new/" ><button type="button"  class="btn btn-primary" >Agregar</button></a><br><br>
