@@ -97,6 +97,7 @@
 
 
  {% for h in herramientas %}
+    <div style="float:left; padding: 50px 30px 50px 80px;">
     {{h.nombre_de_la_herramienta }}
     {{h.precio|linebreaks }}
     <img src="/static/images/{{h.nombre_de_la_herramienta }}.jpg" style="width:200px;height:225px;"><br>
@@ -104,6 +105,7 @@
     <button type="button" class="btn btn-success">Alquilar</button>
     <a href="{% url 'herramienta_eliminar' pk=h.pk %}"><button type="button" class="btn btn-danger glyphicon glyphicon-remove"></button></a>
     <a class="btn btn-default" href="{% url 'herramienta_edit' pk=h.pk %}"><span class="glyphicon glyphicon-pencil"></span></a><br><br><br>
+    </div>
  {% endfor %}
 
 <a href="/herramienta/new/" ><button type="button"  class="btn btn-primary" >Agregar</button></a><br><br>
