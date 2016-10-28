@@ -75,6 +75,8 @@
     {{e.nombre }}
     {{e.direccion_de_correo|linebreaks }}
     {{e.herramientas_que_posee|linebreaks }}
+    <a href="{% url 'empresa_eliminar' pk=e.pk %}"><button type="button" class="btn btn-danger glyphicon glyphicon-remove"></button></a>
+    <a class="btn btn-default" href="{% url 'empresa_edit' pk=e.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
 --------------------------<br>
  {% endfor %}
 

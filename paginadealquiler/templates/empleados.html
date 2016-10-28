@@ -74,6 +74,8 @@
  {% for e in empleados %}
     {{e.nombre }}
     {{e.apellido|linebreaks }}
+    <a href="{% url 'empleado_eliminar' pk=e.pk %}"><button type="button" class="btn btn-danger glyphicon glyphicon-remove"></button></a>
+    <a class="btn btn-default" href="{% url 'empleado_edit' pk=e.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
 --------------------------<br>
  {% endfor %}
 

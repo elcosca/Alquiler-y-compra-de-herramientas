@@ -74,6 +74,8 @@
  {% for c in clientes %}
     {{c.nombre }}
     {{c.apellido|linebreaks }}
+    <a href="{% url 'cliente_eliminar' pk=c.pk %}"><button type="button" class="btn btn-danger glyphicon glyphicon-remove"></button></a>
+    <a class="btn btn-default" href="{% url 'cliente_edit' pk=c.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
 --------------------------<br>
  {% endfor %}
 

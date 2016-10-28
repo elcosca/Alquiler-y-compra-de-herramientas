@@ -75,6 +75,8 @@
     {{a.cliente }}
     {{a.empresa|linebreaks }}
     {{a.beneficio|linebreaks }}
+    <a href="{% url 'asociado_eliminar' pk=a.pk %}"><button type="button" class="btn btn-danger glyphicon glyphicon-remove"></button></a>
+    <a class="btn btn-default" href="{% url 'asociado_edit' pk=a.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
 --------------------------<br>
  {% endfor %}
 

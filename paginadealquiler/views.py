@@ -70,6 +70,7 @@ def herramienta_new(request):
     herramientas = Herramientas.objects.all()
     return render(request, 'herramienta-new.html', {'herramientas': herramientas, 'form' : form})
 
+
 def herramienta_edit(request, pk):
         herramienta = get_object_or_404(Herramientas, pk=pk)
         if request.method == "POST":
@@ -83,7 +84,8 @@ def herramienta_edit(request, pk):
             form = HerramientaForm(instance=herramienta)
         return render(request, 'herramienta-edit.html', {'form': form})
 
-def herramienta_eliminar (request, pk):
+
+def herramienta_eliminar(request, pk):
         Herramientas.objects.filter(pk=pk).delete()
         herramientas = Herramientas.objects.all()
         return render(request, 'herramientas.html', {'herramientas': herramientas})
@@ -102,7 +104,6 @@ def proveedor_new(request):
     proveedores = Proveedor.objects.all()
     return render(request, 'proveedor-new.html', {'proveedores': proveedores, 'form' : form})
 
-'''
 def proveedor_edit(request, pk):
         proveedor = get_object_or_404(Proveedor, pk=pk)
         if request.method == "POST":
@@ -110,11 +111,17 @@ def proveedor_edit(request, pk):
             if form.is_valid():
                 proveedor = form.save(commit=False)
                 proveedor.save()
-                return redirect('/', pk=proveedor.pk)
+                proveedor = Proveedor.objects.all()
+                return render(request, 'proveedor.html', {'proveedor': proveedor})
         else:
             form = ProveedorForm(instance=proveedor)
-        return render(request, '/proveedor-edit.html', {'form': form})
-'''
+        return render(request, 'proveedor-edit.html', {'form': form})
+
+def proveedor_eliminar(request, pk):
+        Proveedor.objects.filter(pk=pk).delete()
+        proveedor = Herramientas.objects.all()
+        return render(request, 'proveedor.html', {'proveedor': proveedor})
+
 
 def empresa_new(request):
     form = EmpresaForm()
@@ -129,19 +136,26 @@ def empresa_new(request):
     empresas = Empresas.objects.all()
     return render(request, 'empresa-new.html', {'empresas': empresas, 'form' : form})
 
-'''
+
 def empresa_edit(request, pk):
-        empresa = get_object_or_404(Herramientas, pk=pk)
+        empresa = get_object_or_404(Empresas, pk=pk)
         if request.method == "POST":
-            form = HerramientaForm(request.POST, instance=herramienta)
+            form = EmpresaForm(request.POST, instance=empresa)
             if form.is_valid():
-                herramienta = form.save(commit=False)
-                herramienta.save()
-                return redirect('/', pk=herramienta.pk)
+                empresa = form.save(commit=False)
+                empresa.save()
+                empresa = Empresas.objects.all()
+                return render(request, 'empresa.html', {'empresa': empresa})
         else:
-            form = HerramientaForm(instance=herramienta)
-        return render(request, '/herramienta-edit.html', {'form': form})
-'''
+            form = EmpresaForm(instance=empresa)
+        return render(request, 'empresa-edit.html', {'form': form})
+
+def empresa_eliminar(request, pk):
+        Empresas.objects.filter(pk=pk).delete()
+        empresa = Empresas.objects.all()
+        return render(request, 'empresas.html', {'empresa': empresa})
+
+
 
 def empleado_new(request):
     form = EmpleadoForm()
@@ -157,6 +171,24 @@ def empleado_new(request):
     return render(request, 'empleado-new.html', {'empleados': empleados, 'form' : form})
 
 
+def empleado_edit(request, pk):
+        empleado = get_object_or_404(Empleados, pk=pk)
+        if request.method == "POST":
+            form = EmpleadoForm(request.POST, instance=empleado)
+            if form.is_valid():
+                empleado = form.save(commit=False)
+                empleado.save()
+                empleado = Empleados.objects.all()
+                return render(request, 'empleados.html', {'empleado': empleado})
+        else:
+            form = EmpleadoForm(instance=empleado)
+        return render(request, 'empleado-edit.html', {'form': form})
+
+def empleado_eliminar(request, pk):
+        Empleados.objects.filter(pk=pk).delete()
+        empleado = Herramientas.objects.all()
+        return render(request, 'empleados.html', {'empleado': empleado})
+
 def contrato_new(request):
     form = ContratoForm()
     if request.method == "POST":
@@ -169,6 +201,26 @@ def contrato_new(request):
             form = ContratoForm()
     contratos = Contrato_de_alquilacion_compra.objects.all()
     return render(request, 'contrato-new.html', {'contratos': contratos, 'form' : form})
+
+
+def contrato_edit(request, pk):
+        contrato = get_object_or_404(Contrato_de_alquilacion_compra, pk=pk)
+        if request.method == "POST":
+            form = ContratoForm(request.POST, instance=contrato)
+            if form.is_valid():
+                contrato = form.save(commit=False)
+                contrato.save()
+                contrato = Contrato_de_alquilacion_compra.objects.all()
+                return render(request, 'contrato.html', {'contrato': contrato})
+        else:
+            form = ContratoForm(instance=contrato)
+        return render(request, 'contrato-edit.html', {'form': form})
+
+
+def contrato_eliminar(request, pk):
+        Contrato_de_alquilacion_compra.objects.filter(pk=pk).delete()
+        contrato = Contrato_de_alquilacion_compra.objects.all()
+        return render(request, 'contrato.html', {'contrato': contrato})
 
 
 def cliente_new(request):
@@ -185,6 +237,26 @@ def cliente_new(request):
     return render(request, 'cliente-new.html', {'clientes': clientes, 'form' : form})
 
 
+def cliente_edit(request, pk):
+        cliente = get_object_or_404(Clientes, pk=pk)
+        if request.method == "POST":
+            form = ClienteForm(request.POST, instance=cliente)
+            if form.is_valid():
+                cliente = form.save(commit=False)
+                cliente.save()
+                cliente = Clientes.objects.all()
+                return render(request, 'clientes.html', {'cliente': cliente})
+        else:
+            form = ProveedorForm(instance=cliente)
+        return render(request, 'cliente-edit.html', {'form': form})
+
+
+def cliente_eliminar(request, pk):
+        Clientes.objects.filter(pk=pk).delete()
+        cliente = Clientes.objects.all()
+        return render(request, 'clientes.html', {'cliente': cliente})
+
+
 def asociado_new(request):
     form = AsociadoForm()
     if request.method == "POST":
@@ -197,3 +269,22 @@ def asociado_new(request):
             form = ContratoForm()
     asociados = Asociados.objects.all()
     return render(request, 'asociado-new.html', {'asociados': asociados, 'form' : form})
+
+
+def asociado_edit(request, pk):
+        asociado = get_object_or_404(Asociados, pk=pk)
+        if request.method == "POST":
+            form = AsociadoForm(request.POST, instance=asociado)
+            if form.is_valid():
+                asociado = form.save(commit=False)
+                asociado.save()
+                asociado = Asociados.objects.all()
+                return render(request, 'asociados.html', {'asociado': asociado})
+        else:
+            form = AsociadoForm(instance=asociado)
+        return render(request, 'asociado-edit.html', {'form': form})
+
+def asociado_eliminar (request, pk):
+        Asociados.objects.filter(pk=pk).delete()
+        asociado = Asociados.objects.all()
+        return render(request, 'asociados.html', {'asociado': asociado})

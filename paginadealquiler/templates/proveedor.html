@@ -73,6 +73,8 @@
  {% for p in proveedor %}
     {{p.nombre_del_proveedor }}
     {{p.direccion_de_correo|linebreaks }}
+    <a href="{% url 'proveedor_eliminar' pk=p.pk %}"><button type="button" class="btn btn-danger glyphicon glyphicon-remove"></button></a>
+    <a class="btn btn-default" href="{% url 'proveedor_edit' pk=p.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
 --------------------------<br>
  {% endfor %}
 
