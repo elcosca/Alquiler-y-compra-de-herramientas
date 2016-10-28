@@ -98,13 +98,14 @@
 
 
  {% for h in herramientas %}
-    <img src="/static/images/{{h.nombre_de_la_herramienta }}.jpg" style="width:200px;height:225px;"><br><br><br>
+<div style="float:left; padding: 50px 30px 50px 80px;">
+    <img src="/static/images/{{h.nombre_de_la_herramienta }}.jpg" style="width:200px;height:225px;"><br>
     <button type="button" class="btn btn-success">Comprar</button>
-    <button type="button" class="btn btn-success">Alquilar</button><br><br><br>
+    <button type="button" class="btn btn-success">Alquilar</button><br>
     {{h.nombre_de_la_herramienta }}
-    {{h.precio|linebreaks }}
+    {{h.precio|linebreaks}}
+</div>
 
-<br>
  {% endfor %}
 
 
