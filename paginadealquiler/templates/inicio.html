@@ -92,14 +92,15 @@
 
 <body style="background-color:powderblue;">
 
-<img src="/static/images/logo-herramienta.png"></img><br><br>
+<img  src="/static/images/logo-herramienta.png" style="position: relative; left: 350px;top: -20px;";><br>
 
 
 
  {% for h in herramientas %}
+    <img src="/static/images/{{h.nombre_de_la_herramienta }}.jpg" style="width:200px;height:225px;"><br>
     {{h.nombre_de_la_herramienta }}
     {{h.precio|linebreaks }}
---------------------------<br>
+<br>
  {% endfor %}
 
 
