@@ -10,7 +10,8 @@
 
 
 <body>
-<title>Venta y Alquiler de Herramientas</title>
+<title>Comprar</title>
+
 
 <nav class="navbar navbar-default">
   <div class="container-fluid">
@@ -68,11 +69,11 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="herramientas/">Herramientas <span class="sr-only">(current)</span></a></li>
-        <li><a href="asociados/">Asociados</a></li>
-        <li><a href="contrato/">Contratos</a></li>
-        <li><a href="empleados/">Empleados</a></li>
-        <li><a href="empresas/">Empresas</a></li>
+        <li class="active"><a href="/herramientas/">Herramientas <span class="sr-only">(current)</span></a></li>
+        <li><a href="/asociados/">Asociados</a></li>
+        <li><a href="/contrato/">Contratos</a></li>
+        <li><a href="/empleados/">Empleados</a></li>
+        <li><a href="/empresas/">Empresas</a></li>
         <li><a href="/proveedor/">Proveedores</a></li>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -80,37 +81,9 @@
 
 <body style="background-color:powderblue;">
 
-<img  src="/static/images/logo-herramienta.png" style="position: relative; left: 350px;top: -20px;";><br>
 
-
-
- {% for h in herramientas %}
-<div style="float:left; padding: 50px 30px 50px 80px;">
-    <img src="/static/images/{{h.nombre_de_la_herramienta }}.png" style="width:200px;height:225px;"><br>
-    <button type="button" class="btn btn-success">Alquilar</button><br>
-    <a href="/comprar/" ><button type="button"  class="btn btn-success" >Comprar</button></a><br>
-    {{h.nombre_de_la_herramienta }}
-    {{h.precio|linebreaks}}
-</div>
-
+ {% for c in comprar %}
+    {{c.cliente }}
+    {{c.herramienta|linebreaks }}
+    {{c.total|linebreaks }}
  {% endfor %}
-
-
-</body>
-</html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</body>
-</html>

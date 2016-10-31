@@ -5,6 +5,7 @@ from .models import Herramientas
 from .models import Clientes
 from .models import Empresas
 from .models import Empleados
+from .models import Comprar
 from .models import Contrato_de_alquilacion_compra
 from .models import Proveedor
 from .models import Asociados
@@ -55,6 +56,10 @@ def vistaproveedor(request):
 def vistaasociados(request):
     asociados = Asociados.objects.all()
     return render(request, 'asociados.html', {'asociados': asociados})
+
+def vistacomprar(request):
+    comprar = Comprar.objects.all()
+    return render(request, 'comprar.html', {'comprar': comprar})
 
 
 def herramienta_new(request):

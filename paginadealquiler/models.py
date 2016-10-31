@@ -104,3 +104,15 @@ class Beneficio(models.Model):
 
     def __str__(self):
         return self.descripcion
+
+
+class Comprar(models.Model):
+    id_compra = models.CharField(max_length=200)
+    cliente = models.ForeignKey('Clientes')
+    empleado = models.ForeignKey('Empleados')
+    herramienta = models.ForeignKey('Herramientas')
+    cantidad = models.IntegerField()
+    total = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.id_compra

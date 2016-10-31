@@ -57,3 +57,11 @@ class AsociadoForm(forms.ModelForm):
             fields = ('id_asociado', 'cliente', 'empresa', 'beneficio', 'renovar_asociacion')
 
 
+#class ComprarForm(forms.ModelForm):
+
+
+        #class Meta:
+            #model = Clientes, Herramientas, Empleados, Asociados
+            #fields = ('nombre', 'apellido', '')
+
+
