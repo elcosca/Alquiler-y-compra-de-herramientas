@@ -75,6 +75,7 @@
         <li><a href="/empleados/">Empleados</a></li>
         <li><a href="/empresas/">Empresas</a></li>
         <li><a href="/proveedor/">Proveedores</a></li>
+        <li><a href="/comprar/">Compras</a></li>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
@@ -86,4 +87,6 @@
     {{c.cliente }}
     {{c.herramienta|linebreaks }}
     {{c.total|linebreaks }}
+    <a class="btn btn-default" href="{% url 'comprar_edit' pk=c.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+    <a href="{% url 'comprar_eliminar' pk=c.pk %}"><button type="button" class="btn btn-danger glyphicon glyphicon-remove"></button></a><br>
  {% endfor %}

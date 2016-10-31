@@ -31,5 +31,8 @@ urlpatterns = [
         url(r'^empleado/new/$', views.empleado_new, name='empleado_new'),
         url(r'^cliente/new/$', views.cliente_new, name='cliente_new'),
         url(r'^asociado/new/$', views.asociado_new, name='asociado_new'),
-        url(r'^comprar/$', views.vistacomprar)
+        url(r'^comprar/edit/(?P<pk>[0-9]+)$', views.comprar_edit, name='comprar_edit'),
+        url(r'^comprar/eliminar/(?P<pk>[0-9]+)$', views.comprar_eliminar, name='comprar_eliminar'),
+        url(r'^comprar/$', views.vistacomprar),
+        url(r'^comprar/new/$', views.comprar_new, name='comprar_new')
     ]

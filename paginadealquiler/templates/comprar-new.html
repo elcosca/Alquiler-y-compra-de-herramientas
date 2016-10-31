@@ -10,7 +10,7 @@
 
 
 <body>
-<title>Empresas</title>
+<title>Compras</title>
 
 
 <nav class="navbar navbar-default">
@@ -31,6 +31,18 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Facebook <span class="sr-only">(current)</span></a></li>
         <li><a href="#">Twitter</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">One more separated link</a></li>
+          </ul>
+        </li>
       </ul>
       <form class="navbar-form navbar-left">
         <div class="form-group">
@@ -39,6 +51,7 @@
         <button type="submit" class="btn btn-default">Buscar</button>
       </form>
       <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">Link</a></li>
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sesión <span class="caret"></span></a>
           <ul class="dropdown-menu">
@@ -53,45 +66,17 @@
   </div><!-- /.container-fluid -->
 </nav>
 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="clientes/">Clientes</a>
-    </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="/herramientas/">Herramientas <span class="sr-only">(current)</span></a></li>
-        <li><a href="/asociados/">Asociados</a></li>
-        <li><a href="/contrato/">Contratos</a></li>
-        <li><a href="/empleados/">Empleados</a></li>
-        <li><a href="/empresas/">Empresas</a></li>
-        <li><a href="/proveedor/">Proveedores</a></li>
-        <li><a href="/comprar/">Compras</a></li>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
 
 <body style="background-color:powderblue;">
 
-
- {% for e in empresas %}
-    {{e.nombre }}
-    {{e.direccion_de_correo|linebreaks }}
-    {{e.herramientas_que_posee|linebreaks }}
-    <a href="{% url 'empresa_eliminar' pk=e.pk %}"><button type="button" class="btn btn-danger glyphicon glyphicon-remove"></button></a>
-    <a class="btn btn-default" href="{% url 'empresa_edit' pk=e.pk %}"><span class="glyphicon glyphicon-pencil"></span></a><br><br><br>
- {% endfor %}
-
-<a href="/empresa/new/" ><button type="button"  class="btn btn-primary" >Agregar</button></a><br><br>
+    {% block content %}
+        <h1>Nueva Compra</h1>
+        <form method="POST" class="CompraForm">{% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="save btn btn-default">Enviar</button>
+        </form>
+    {% endblock %}
 
 
 </body>

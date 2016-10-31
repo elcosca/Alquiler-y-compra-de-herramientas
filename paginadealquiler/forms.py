@@ -6,6 +6,7 @@ from .models import Empleados
 from .models import Contrato_de_alquilacion_compra
 from .models import Clientes
 from .models import Asociados
+from .models import Comprar
 
 
 class HerramientaForm(forms.ModelForm):
@@ -57,11 +58,10 @@ class AsociadoForm(forms.ModelForm):
             fields = ('id_asociado', 'cliente', 'empresa', 'beneficio', 'renovar_asociacion')
 
 
-#class ComprarForm(forms.ModelForm):
+class ComprarForm(forms.ModelForm):
 
-
-        #class Meta:
-            #model = Clientes, Herramientas, Empleados, Asociados
-            #fields = ('nombre', 'apellido', '')
+        class Meta:
+            model = Comprar
+            fields = ('id_compra', 'cliente', 'empleado', 'herramienta', 'cantidad', 'total')
 
 

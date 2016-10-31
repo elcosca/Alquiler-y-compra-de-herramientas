@@ -16,6 +16,8 @@ from .forms import EmpleadoForm
 from .forms import ContratoForm
 from .forms import ClienteForm
 from .forms import AsociadoForm
+from .forms import ComprarForm
+
 
 
 def vistainicio(request):
@@ -60,6 +62,39 @@ def vistaasociados(request):
 def vistacomprar(request):
     comprar = Comprar.objects.all()
     return render(request, 'comprar.html', {'comprar': comprar})
+
+def comprar_new(request):
+    form = ComprarForm()
+    if request.method == "POST":
+        form = ComprarForm(request.POST)
+    if form.is_valid():
+                comprar = form.save(commit=False)
+                comprar.save()
+                return redirect('/')
+    else:
+            form = ComprarForm()
+    compras = Comprar.objects.all()
+    return render(request, 'comprar-new.html', {'compras': compras, 'form' : form})
+
+
+def comprar_edit(request, pk):
+        comprar = get_object_or_404(Comprar, pk=pk)
+        if request.method == "POST":
+            form = ComprarForm(request.POST, instance=comprar)
+            if form.is_valid():
+                comprar = form.save(commit=False)
+                comprar.save()
+                comprar = Comprar.objects.all()
+                return render(request, 'comprar.html', {'comprar': comprar})
+        else:
+            form = ComprarForm(instance=comprar)
+        return render(request, 'comprar-edit.html', {'form': form})
+
+
+def comprar_eliminar(request, pk):
+        Comprar.objects.filter(pk=pk).delete()
+        comprar = Comprar.objects.all()
+        return render(request, 'comprar.html', {'comprar': comprar})
 
 
 def herramienta_new(request):
