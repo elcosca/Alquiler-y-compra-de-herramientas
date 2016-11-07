@@ -83,9 +83,11 @@
 
 <body style="background-color:powderblue;">
 
-
+<table style = "border: 1px solid black; width: 100%">
+<tr><th>Cliente</th><th>Herramienta</th><th>Precio</th><th>Borrar</th><th>Editar</th></tr>
  {% for a in alquiler %}
-    {{a.cliente }}
-    {{a.herramienta|linebreaks }}
-    {{a.precio|linebreaks }}
+  <tr style = "border: 1px solid black">
+    <td style = "border: 1px solid black">{{a.cliente }}</td>
+    <td style = "border: 1px solid black">{{a.herramienta|linebreaks }}</td>
+    <td style = "border: 1px solid black">{{a.precio|linebreaks }}</td>
  {% endfor %}

@@ -83,11 +83,13 @@
 
 <body style="background-color:powderblue;">
 
-
+<table style = "border: 1px solid black; width: 100%">
+<tr><th>Cliente</th><th>Herramienta</th><th>Total</th><th>Borrar</th><th>Editar</th></tr>
  {% for c in comprar %}
-    {{c.cliente }}
-    {{c.herramienta|linebreaks }}
-    {{c.total|linebreaks }}
-    <a class="btn btn-default" href="{% url 'comprar_edit' pk=c.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-    <a href="{% url 'comprar_eliminar' pk=c.pk %}"><button type="button" class="btn btn-danger glyphicon glyphicon-remove"></button></a><br>
+  <tr style = "border: 1px solid black">
+    <td style = "border: 1px solid black">{{c.cliente }}</td>
+    <td style = "border: 1px solid black">{{c.herramienta|linebreaks }}</td>
+    <td style = "border: 1px solid black">{{c.total|linebreaks }}</td>
+    <td style = "border: 1px solid black"><a class="btn btn-default" href="{% url 'comprar_edit' pk=c.pk %}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+    <td style = "border: 1px solid black"><a href="{% url 'comprar_eliminar' pk=c.pk %}"><button type="button" class="btn btn-danger glyphicon glyphicon-remove"></button></a><br></td>
  {% endfor %}

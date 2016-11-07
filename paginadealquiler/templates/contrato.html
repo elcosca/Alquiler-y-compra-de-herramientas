@@ -84,13 +84,15 @@
 
 <body style="background-color:powderblue;">
 
-
+<table style = "border: 1px solid black; width: 100%">
+<tr><th>Nombre</th><th>Empresa</th><th>Herramienta</th><th>Borrar</th><th>Editar</th></tr>
  {% for c in contrato %}
-    {{c.nombre_del_cliente }}
-    {{c.nombre_de_la_empresa|linebreaks }}
-    {{c.herramienta|linebreaks }}
-    <a href="{% url 'contrato_eliminar' pk=c.pk %}"><button type="button" class="btn btn-danger glyphicon glyphicon-remove"></button></a>
-    <a class="btn btn-default" href="{% url 'contrato_edit' pk=c.pk %}"><span class="glyphicon glyphicon-pencil"></span></a><br><br><br>
+  <tr style = "border: 1px solid black">
+    <td style = "border: 1px solid black">{{c.nombre_del_cliente }}</td>
+    <td style = "border: 1px solid black">{{c.nombre_de_la_empresa|linebreaks }}</td>
+    <td style = "border: 1px solid black">{{c.herramienta|linebreaks }}</td>
+    <td style = "border: 1px solid black"><a href="{% url 'contrato_eliminar' pk=c.pk %}"><button type="button" class="btn btn-danger glyphicon glyphicon-remove"></button></a></td>
+    <td style = "border: 1px solid black"><a class="btn btn-default" href="{% url 'contrato_edit' pk=c.pk %}"><span class="glyphicon glyphicon-pencil"></span></a><br><br><br></td>
  {% endfor %}
 
 <a href="/contrato/new/" ><button type="button"  class="btn btn-primary" >Agregar</button></a><br><br>
