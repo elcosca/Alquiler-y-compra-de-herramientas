@@ -66,7 +66,7 @@ class ComprarForm(forms.ModelForm):
             fields = ('id_compra', 'cliente', 'empleado', 'herramienta', 'cantidad', 'total')
 
 
-class AlquilarForm(forms.ModelForm):
+class AlquilerForm(forms.ModelForm):
 
         class Meta:
             model = Alquiler

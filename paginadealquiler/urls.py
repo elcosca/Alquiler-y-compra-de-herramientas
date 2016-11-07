@@ -35,5 +35,8 @@ urlpatterns = [
         url(r'^comprar/eliminar/(?P<pk>[0-9]+)$', views.comprar_eliminar, name='comprar_eliminar'),
         url(r'^comprar/$', views.vistacomprar),
         url(r'^comprar/new/$', views.comprar_new, name='comprar_new'),
+        url(r'^alquiler/eliminar/(?P<pk>[0-9]+)$', views.alquiler_eliminar, name='alquiler_eliminar'),
+        url(r'^alquiler/edit/(?P<pk>[0-9]+)$', views.alquiler_edit, name='alquiler_edit'),
+        url(r'^alquiler/new/$', views.alquiler_new, name='alquiler_new'),
         url(r'^alquiler/$', views.vistaalquiler)
     ]

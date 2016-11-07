@@ -90,4 +90,6 @@
     <td style = "border: 1px solid black">{{a.cliente }}</td>
     <td style = "border: 1px solid black">{{a.herramienta|linebreaks }}</td>
     <td style = "border: 1px solid black">{{a.precio|linebreaks }}</td>
+    <td style = "border: 1px solid black"><a class="btn btn-default" href="{% url 'alquiler_edit' pk=a.pk %}"><span class="glyphicon glyphicon-pencil"></span></a></td>
+    <td style = "border: 1px solid black"><a href="{% url 'alquiler_eliminar' pk=a.pk %}"><button type="button" class="btn btn-danger glyphicon glyphicon-remove"></button></a><br></td>
  {% endfor %}

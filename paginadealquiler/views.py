@@ -18,6 +18,7 @@ from .forms import ContratoForm
 from .forms import ClienteForm
 from .forms import AsociadoForm
 from .forms import ComprarForm
+from .forms import AlquilerForm
 
 
 def vistainicio(request):
@@ -67,20 +68,41 @@ def vistaalquiler(request):
     alquiler = Alquiler.objects.all()
     return render(request, 'alquiler.html', {'alquiler': alquiler})
 
-#def comprar_new(request):
-    #form = ComprarForm()
-    #if request.method == "POST":
-        #form = ComprarForm(request.POST)
-    #if form.is_valid():
-                #comprar = form.save(commit=False)
-                #comprar.save()
-                #return redirect('/')
-    #else:
-            #form = ComprarForm()
-    #compras = Comprar.objects.all()
-    #return render(request, 'comprar-new.html', {'compras': compras, 'form' : form})
+
+def alquiler_new(request):
+    form = AlquilerForm()
+    if request.method == "POST":
+        form = AlquilerForm(request.POST)
+    if form.is_valid():
+                alquiler = form.save(commit=False)
+                alquiler.save()
+                return redirect('/')
+    else:
+            form = AlquilerForm()
+    alquiler = Alquiler.objects.all()
+    return render(request, 'alquiler-new.html', {'alquiler': alquiler, 'form' : form})
 
 
+
+def alquiler_edit(request, pk):
+        alquiler = get_object_or_404(Alquiler, pk=pk)
+        if request.method == "POST":
+            form = AlquilerForm(request.POST, instance=alquiler)
+            if form.is_valid():
+                alquiler = form.save(commit=False)
+                alquiler.save()
+                alquiler = Alquiler.objects.all()
+                return render(request, 'alquiler.html', {'alquiler': alquiler})
+        else:
+            form = AlquilerForm(instance=alquiler)
+        return render(request, 'alquiler-edit.html', {'form': form})
+
+
+def alquiler_eliminar(request, pk):
+
+        Alquiler.objects.filter(pk=pk).delete()
+        alquiler = Comprar.objects.all()
+        return render(request, 'alquiler.html', {'alquiler': alquiler})
 
 
 def comprar_new(request):
@@ -95,7 +117,6 @@ def comprar_new(request):
             form = ComprarForm()
     compras = Comprar.objects.all()
     return render(request, 'comprar-new.html', {'compras': compras, 'form' : form})
-
 
 
 
