@@ -10,7 +10,7 @@
 
 
 <body>
-<title>Empleados</title>
+<title>Alquileres</title>
 
 
 <nav class="navbar navbar-default">
@@ -84,18 +84,8 @@
 <body style="background-color:powderblue;">
 
 
- {% for e in empleados %}
-    {{e.nombre }}
-    {{e.apellido|linebreaks }}
-    <a href="{% url 'empleado_eliminar' pk=e.pk %}"><button type="button" class="btn btn-danger glyphicon glyphicon-remove"></button></a>
-    <a class="btn btn-default" href="{% url 'empleado_edit' pk=e.pk %}"><span class="glyphicon glyphicon-pencil"></span></a><br><br><br>
+ {% for a in alquiler %}
+    {{a.cliente }}
+    {{a.herramienta|linebreaks }}
+    {{a.precio|linebreaks }}
  {% endfor %}
-
-<a href="/empleado/new/" ><button type="button"  class="btn btn-primary" >Agregar</button></a><br><br>
-
-
-
-
-
-</body>
-</html>

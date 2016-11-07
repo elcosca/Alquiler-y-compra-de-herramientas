@@ -9,6 +9,7 @@ from .models import Comprar
 from .models import Contrato_de_alquilacion_compra
 from .models import Proveedor
 from .models import Asociados
+from .models import Alquiler
 from .forms import HerramientaForm
 from .forms import ProveedorForm
 from .forms import EmpresaForm
@@ -17,7 +18,6 @@ from .forms import ContratoForm
 from .forms import ClienteForm
 from .forms import AsociadoForm
 from .forms import ComprarForm
-
 
 
 def vistainicio(request):
@@ -63,6 +63,26 @@ def vistacomprar(request):
     comprar = Comprar.objects.all()
     return render(request, 'comprar.html', {'comprar': comprar})
 
+def vistaalquiler(request):
+    alquiler = Alquiler.objects.all()
+    return render(request, 'alquiler.html', {'alquiler': alquiler})
+
+#def comprar_new(request):
+    #form = ComprarForm()
+    #if request.method == "POST":
+        #form = ComprarForm(request.POST)
+    #if form.is_valid():
+                #comprar = form.save(commit=False)
+                #comprar.save()
+                #return redirect('/')
+    #else:
+            #form = ComprarForm()
+    #compras = Comprar.objects.all()
+    #return render(request, 'comprar-new.html', {'compras': compras, 'form' : form})
+
+
+
+
 def comprar_new(request):
     form = ComprarForm()
     if request.method == "POST":
@@ -75,6 +95,8 @@ def comprar_new(request):
             form = ComprarForm()
     compras = Comprar.objects.all()
     return render(request, 'comprar-new.html', {'compras': compras, 'form' : form})
+
+
 
 
 def comprar_edit(request, pk):

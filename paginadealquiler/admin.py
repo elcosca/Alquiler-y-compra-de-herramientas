@@ -9,6 +9,8 @@ from .models import Contrato_de_alquilacion_compra
 from .models import Turnos
 from .models import Beneficio
 from .models import Comprar
+from .models import Alquiler
+
 
 admin.site.register(Clientes)
 admin.site.register(Empleados)
@@ -20,5 +22,6 @@ admin.site.register(Contrato_de_alquilacion_compra)
 admin.site.register(Turnos)
 admin.site.register(Beneficio)
 admin.site.register(Comprar)
+admin.site.register(Alquiler)
 
 

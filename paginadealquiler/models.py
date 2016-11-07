@@ -7,7 +7,6 @@ class Herramientas (models.Model):
     id_herramienta = models.IntegerField()
     precio = models.CharField(max_length=200)
     stock = models.CharField(max_length=200)
-
     def __str__(self):
         return self.nombre_de_la_herramienta
 
@@ -116,3 +115,16 @@ class Comprar(models.Model):
 
     def __str__(self):
         return self.id_compra
+
+
+class Alquiler(models.Model):
+    id_alquiler = models.CharField(max_length=200)
+    cliente = models.ForeignKey('Clientes')
+    empleado = models.ForeignKey('Empleados')
+    herramienta = models.ForeignKey('Herramientas')
+    cantidad = models.IntegerField()
+    total = models.CharField(max_length=200)
+    fecha_de_entrega = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return self.id_alquiler

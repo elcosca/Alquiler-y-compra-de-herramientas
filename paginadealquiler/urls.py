@@ -34,5 +34,6 @@ urlpatterns = [
         url(r'^comprar/edit/(?P<pk>[0-9]+)$', views.comprar_edit, name='comprar_edit'),
         url(r'^comprar/eliminar/(?P<pk>[0-9]+)$', views.comprar_eliminar, name='comprar_eliminar'),
         url(r'^comprar/$', views.vistacomprar),
-        url(r'^comprar/new/$', views.comprar_new, name='comprar_new')
+        url(r'^comprar/new/$', views.comprar_new, name='comprar_new'),
+        url(r'^alquiler/$', views.vistaalquiler)
     ]

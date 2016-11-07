@@ -7,6 +7,7 @@ from .models import Contrato_de_alquilacion_compra
 from .models import Clientes
 from .models import Asociados
 from .models import Comprar
+from .models import Alquiler
 
 
 class HerramientaForm(forms.ModelForm):
@@ -63,5 +64,13 @@ class ComprarForm(forms.ModelForm):
         class Meta:
             model = Comprar
             fields = ('id_compra', 'cliente', 'empleado', 'herramienta', 'cantidad', 'total')
+
+
+class AlquilarForm(forms.ModelForm):
+
+        class Meta:
+            model = Alquiler
+            fields = ('id_alquiler', 'cliente', 'empleado', 'herramienta', 'cantidad', 'total', 'fecha_de_entrega')
+
 
 
